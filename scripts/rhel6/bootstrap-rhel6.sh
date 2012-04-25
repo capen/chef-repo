@@ -36,45 +36,12 @@ status 'Running Yum Update'
 yum -q -y update
 
 # Install Dependencies
-status 'Installing Chef and Cloud Formation Dependencies'
-yum -q -y install gcc g++ cpp libgcc make python-setuptools.noarch python-simplejson.x86_64 git libffi libyaml
+status 'Installing Chef Dependencies'
+yum -q -y install gcc cpp libgcc
 if [ $? -ne 0 ]; then
   echo "Error Installing Build Essentials"
   exit 1
 fi
-
-# Install Python Daemon
-status 'Installing Python Daemon'
-wget http://pypi.python.org/packages/source/p/python-daemon/python-daemon-1.5.5.tar.gz
-tar xvzf python-daemon-1.5.5.tar.gz
-cd python-daemon-* && python setup.py install
-if [ $? -ne 0 ]; then
-  echo "Error Installing Python Daemon"
-  exit 1
-fi
-cd $OLDPWD
-
-# Install Python Lock File
-status 'Installing Python Lock File'
-wget http://pylockfile.googlecode.com/files/lockfile-0.8.tar.gz
-tar xvzf lockfile-0.8.tar.gz
-cd lockfile-* && python setup.py install
-if [ $? -ne 0 ]; then
-  echo "Error Installing Python Daemon"
-  exit 1
-fi
-cd $OLDPWD
-
-# Install CFN Boostrap Tools
-status 'Installing CFN Bootstap Tools'
-wget https://s3.amazonaws.com/cloudformation-examples/aws-cfn-bootstrap-latest.tar.gz
-tar xvzf aws-cfn-bootstrap-latest.tar.gz
-cd aws-cfn-bootstrap-* && python setup.py install
-if [ $? -ne 0 ]; then
-  echo "Error Installing CFN Bootstrap Tools"
-  exit 1
-fi
-cd $OLDPWD
 
 # Install Ruby
 status 'Installing Ruby'
