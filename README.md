@@ -3,7 +3,7 @@ I am the Intuit Chef repository.  My goal is to provide an easy path for you to 
 Getting Started
 ---------------
 
-* Launch one of the supported AMIs, I'm using **ami-db0b509e** (see below for full list).
+* Launch one of the supported AMIs, I'm using **ami-db0b509e** in us-west-1 (see below for full list).
 * Download this repository and copy it to the target system.
 * SSH to that system and in the downloaded directory, run the following
 
@@ -36,5 +36,5 @@ This currently supports the Intuit RedHat 6 AMI. It has been tested with the fol
 bl-rhel6u2-1.0.x86_64.ami1 
 
 US-East-1 (Virginia):     ami-7fba6216  
-US-West-2 (Oregon):       ami-12fe7222  
 US-West-1 (N.California): ami-db0b509e  
+US-West-2 (Oregon):       ami-12fe7222  
