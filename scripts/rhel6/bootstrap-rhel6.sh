@@ -73,4 +73,4 @@ mkdir -p -m 700 /var/log/chef
 # Complete
 echo 'Bootstraping completed.'
 echo 'To apply base role run:'
-echo 'chef-solo -c config/solo.rb -j nodes/base.json'
+echo 'cd ../../ ; chef-solo -c config/solo.rb -j nodes/base.json'
