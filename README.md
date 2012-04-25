@@ -3,6 +3,7 @@ I am the Intuit Chef repository.  My goal is to provide an easy path for you to 
 Getting Started
 ---------------
 
+* Launch one of the supported AMIs, I'm using **ami-db0b509e** (see below for full list).
 * Download this repository and copy it to the target system.
 * SSH to that system and in the downloaded directory, run the following
 
