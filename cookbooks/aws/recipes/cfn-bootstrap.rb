@@ -15,8 +15,19 @@ include_recipe "python::pip"
   end
 end
 
-["lockfile", "python-daemon", "aws-cfn-bootstrap"].each do |p|
+["lockfile", "python-daemon"].each do |p|
   python_pip p do
     action :install
   end
+end
+
+remote_file "/tmp/aws-cfn-bootstrap-latest.tar.gz" do
+  source "https://s3.amazonaws.com/cloudformation-examples/aws-cfn-bootstrap-latest.tar.gz"
+  mode "600"
+  not_if "pip freeze |grep aws-cfn-bootstrap"
+end
+
+execute "yaws-bootstrap-cfn" do
+  command "easy_install /tmp/aws-cfn-bootstrap-latest.tar.gz"
+  not_if "pip freeze |grep aws-cfn-bootstrap"
 end

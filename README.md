@@ -22,5 +22,4 @@ run:
 chef-solo -c config/solo.r -j nodes/base.rb
 ```
 
-
-This currently supports the RedHat 6 AMI.
+This currently supports the RedHat 6 AMI. It has been tested with the following AMIs:

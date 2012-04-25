@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# This script will bootstrap an instance with everything
+# required to run chef-solo
+
 chef_version='0.10.8'
 bootstrap_log='/tmp/bootstrap.log'
 
@@ -69,4 +72,5 @@ mkdir -p -m 700 /var/log/chef
 
 # Complete
 echo 'Bootstraping completed.'
-echo 'To apply base role, run: chef-solo -c config/solo.rb -j nodes/default.json'
+echo 'To apply base role run:'
+echo 'chef-solo -c config/solo.rb -j nodes/base.json'
