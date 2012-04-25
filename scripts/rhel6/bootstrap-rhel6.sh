@@ -9,6 +9,10 @@ if [ `whoami` != "root" ]; then
 fi
 
 # Must be run on RHEL 6
+if [ `cat /etc/redhat-release |awk '{print $7}'|cut -d. -f1` != "6" ]; then
+  echo -e "\n $0 must be run on RHEL 6"
+  exit 1
+fi
 
 # Status function
 function status {

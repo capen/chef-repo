@@ -1,3 +1,3 @@
-name 'base-ami'
+name 'base'
 description 'Base Configuration'
-run_list 'recipe[base]'
+run_list 'recipe[base::umask]'
