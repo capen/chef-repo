@@ -4,7 +4,7 @@ Getting Started
 ---------------
 
 * Launch one of the supported AMIs, I'm using **ami-db0b509e** in us-west-1 (see below for full list).
-* Download this repository and copy it to the target system.
+* Download this repository and copy it to the target system.  (I include the Intuit Cookbooks Git Submodule, so if you clone me, make sure to do a **git submodule init && git submodule update**)
 * SSH to that system and in the downloaded directory, run the following
 
 ```
