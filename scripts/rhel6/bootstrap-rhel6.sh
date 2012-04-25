@@ -62,6 +62,3 @@ fi
 # Create Chef Log Directory
 status 'Creating Chef Log Directory'
 mkdir -p -m 700 /var/log/chef
-
-# Cleanup RPMs
-/bin/rm *.rpm
