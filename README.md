@@ -25,7 +25,7 @@ We include a base that installs a few common packages
 To apply the base role run:
 
 ```
-chef-solo -c config/solo.r -j nodes/base.rb
+chef-solo -c config/solo.rb -j nodes/base.json
 ```
 
 Supported AMIs
