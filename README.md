@@ -31,4 +31,4 @@ chef-solo -c config/solo.rb -j nodes/base.json
 Supported AMIs
 --------------
 
-This currently supports the Intuit RedHat 6 AMI. It has been tested with the following version:
+This currently supports RedHat 6.
