@@ -1,9 +1,9 @@
-I am the Intuit Chef repository.  My goal is to provide an easy path for you to boot strap a Intuit Linux instance with Chef.
+I am the Intuit Chef repository.  My goal is to provide an easy path for you to boot strap a Intuit Linux instance with Chef.  We are based on the RHEL 6 baseline.
 
 Getting Started
 ---------------
 
-* Launch one of the supported AMIs, I'm using **ami-db0b509e** in us-west-1 (see below for full list).
+* Launch one of the supported AMIs.  Currently this is tested on RHEL 6u2.
 * Download this repository and copy it to the target system.  (I include the Intuit Cookbooks Git Submodule, so if you clone me, make sure to do a **git submodule init && git submodule update**)
 * SSH to that system and in the downloaded directory, run the following
 
@@ -32,9 +32,3 @@ Supported AMIs
 --------------
 
 This currently supports the Intuit RedHat 6 AMI. It has been tested with the following version:
-
-bl-rhel6u2-1.0.x86_64.ami1 
-
-US-East-1 (Virginia):     ami-7fba6216  
-US-West-1 (N.California): ami-db0b509e  
-US-West-2 (Oregon):       ami-12fe7222  
