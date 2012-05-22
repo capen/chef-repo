@@ -3,8 +3,7 @@
 # This script will bootstrap an instance with everything
 # required to run chef-solo
 
-chef_version='0.10.8'
-bootstrap_log='/tmp/bootstrap.log'
+log='/tmp/bootstrap.log'
 
 # Must be run as root
 if [ `whoami` != "root" ]; then
@@ -29,7 +28,7 @@ let current_operation=0
 let total_operations=`egrep ^status $0 | wc -l`
 
 # Getting started
-status "Log file located at $bootstrap_log"
+status "Log file located at $log"
 
 # Change umask to something sane
 status 'Setting umask to something sane'
@@ -38,39 +37,22 @@ umask 022 ; for x in /root/.bashrc /root/.bash_profile /etc/bashrc /etc/profile;
   chmod 664 $x; sed -i '/umask 077/d' $x
 done
 
-# Update the system
-status 'Running Yum Update'
-yum -q -y update >> $bootstrap_log 2>&1
-
-# Install Dependencies
-status 'Installing Chef Dependencies'
-yum -q -y install gcc cpp libgcc make >> $bootstrap_log 2>&1
+# Downloading Omnibus package
+status 'Download Chef Omnibus Package'
+wget -O /root/chef-full-0.10.8-3.x86_64.rpm -q http://s3.amazonaws.com/opscode-full-stack/el-6.2-x86_64/chef-full-0.10.8-3.x86_64.rpm >> $log 2>&1
 if [ $? -ne 0 ]; then
-  echo 'Error Installing Chef Dependencies'
+  echo 'Error downloading Omnibus'
   exit 1
 fi
 
-# Install Ruby
-status 'Installing Ruby'
-yum -q -y install ruby rubygems ruby-devel >> $bootstrap_log 2>&1
+# Installing Omnibus
+status 'Installing Omnibus RPM'
+rpm -i /root/chef-full-0.10.8-3.x86_64.rpm >> $log 2>&1
 if [ $? -ne 0 ]; then
-  echo "Error Installing Chef"
+  echo 'Error installing Omnibus'
   exit 1
 fi
 
-# Install Chef
-status 'Installing Chef'
-gem install chef -v $chef_version --no-ri --no-rdoc >> $bootstrap_log 2>&1
-if [ $? -ne 0 ]; then
-  echo "Error Installing Chef"
-  exit 1
-fi
-
-# Create Chef Log Directory
-status 'Creating Chef Log Directory'
-mkdir -p -m 700 /var/log/chef
-
-# Complete
-echo 'Bootstraping completed.'
-echo 'To apply base role run:'
-echo 'cd ../../ ; chef-solo -c config/solo.rb -j nodes/base.json'
+# Done
+status 'Completed succesfully, exiting with 0'
+exit 0
