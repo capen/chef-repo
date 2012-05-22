@@ -2,7 +2,7 @@
 chef_home_dir = File.expand_path('./')
 
 # Download temporary files to /tmp
-file_cache_path '/tmp'
+file_cache_path '/var/chef/cache'
 
 # Set path to config
 cookbook_path [ File.join(chef_home_dir, 'cookbooks') ]
