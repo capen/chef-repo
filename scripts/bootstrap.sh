@@ -1,5 +1,7 @@
 #!/bin/bash
 
+umask 022
+
 dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 if [ ! -f /etc/redhat-release ]; then
