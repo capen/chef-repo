@@ -39,7 +39,7 @@ done
 
 # Downloading Omnibus package
 status 'Download Chef Omnibus Package'
-wget -O /root/chef-full-0.10.8-3.x86_64.rpm -q http://s3.amazonaws.com/opscode-full-stack/el-6.2-x86_64/chef-full-0.10.8-3.x86_64.rpm >> $log 2>&1
+wget -O /root/chef-full.rpm -q http://s3-us-west-1.amazonaws.com/intu-artifacts-us-west-1/rhel6/chef-full-0.10.10-1.x86_64.rpm >> $log 2>&1
 if [ $? -ne 0 ]; then
   echo 'Error downloading Omnibus'
   exit 1
@@ -47,9 +47,17 @@ fi
 
 # Installing Omnibus
 status 'Installing Omnibus RPM'
-rpm -i /root/chef-full-0.10.8-3.x86_64.rpm >> $log 2>&1
+rpm -i /root/chef-full.rpm >> $log 2>&1
 if [ $? -ne 0 ]; then
   echo 'Error installing Omnibus'
+  exit 1
+fi
+
+# Removing chef binary
+status 'Remove chef rpm'
+rpm -e /root/chef-full.rpm
+if [ $? -ne 0 ]; then
+  echo 'Error removing rpm'
   exit 1
 fi
 
