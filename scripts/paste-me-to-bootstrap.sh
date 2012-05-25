@@ -1,4 +1,4 @@
-# On a Intuit instance
+# On an Intuit instance
 # Paste the below commands to install chef
 # And download the starter cookbooks repo
 
