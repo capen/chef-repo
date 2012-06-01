@@ -18,7 +18,7 @@ git clone $chef_repo $chef_dir
 mkdir -p $chef_dir $chef_log_dir $chef_cache_dir
 
 # Bootstrap the instance
-/var/chef/scripts/bootstrap.sh
+/var/chef/script/bootstrap.sh
 
 # Download the cookbooks submodule
 cd /var/chef ; git submodule init && git submodule update ; cd -
