@@ -37,6 +37,13 @@ umask 022 ; for x in /root/.bashrc /root/.bash_profile /etc/bashrc /etc/profile;
   chmod 664 $x; sed -i '/umask 077/d' $x
 done
 
+# Create chef directories
+status 'Creating chef directories'
+mkdir -p /var/chef/cache /var/log/chef
+if [ $? -ne 0 ]; then
+  echo 'Error creating chef directories'
+fi
+
 # Downloading Omnibus package
 status 'Download Chef Omnibus Package'
 wget -O /root/chef-full.rpm -q http://s3-us-west-1.amazonaws.com/intu-artifacts-us-west-1/rhel6/chef-full-0.10.10-1.x86_64.rpm >> $log 2>&1
@@ -55,7 +62,7 @@ fi
 
 # Removing chef binary
 status 'Remove chef rpm'
-rpm -e /root/chef-full.rpm
+/bin/rm /root/chef-full.rpm
 if [ $? -ne 0 ]; then
   echo 'Error removing rpm'
   exit 1
