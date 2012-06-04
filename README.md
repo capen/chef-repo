@@ -1,4 +1,7 @@
-I am the Intuit Chef repository.  My goal is to provide an easy path for you to boot strap a Intuit Linux instance with Chef.  We are based on the RHEL 6 baseline.
+Chef Starter Repo
+=================
+
+I am the Intuit Chef repository.  My goal is to provide an easy path for you to boot strap a Intuit Linux instance with Chef and the Intuit cookbooks.
 
 Getting Started
 ---------------
@@ -8,7 +11,8 @@ Getting Started
 * SSH to that system and in the downloaded directory, run the following
 
 ```
-umask 022 ; ./scripts/rhel6/bootstrap-rhel6.sh
+umask 022
+./scripts/rhel6/bootstrap-rhel6.sh
 ```
 
 This will boot strap the instance with chef.
@@ -31,4 +35,4 @@ chef-solo -c config/solo.rb -j nodes/base.json
 Supported AMIs
 --------------
 
-This currently supports RedHat 6.
+The Intuit Chef Starter Repo is tested with RHEL6u2
