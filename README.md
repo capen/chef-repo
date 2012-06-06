@@ -47,7 +47,9 @@ You can specify any recipe in the cookbook repo as follows:
 chef-solo -c config/solo.rb -o 'recipe[jenkins]'
 ```
 
+Checkout the [Intuit Cookbooks Repo](https://github.com/live-community/cookbooks) for a full list of available cookbooks.
+
 Supported AMIs
 --------------
 
-The Intuit Chef Starter Repo is tested with RHEL6
+The Intuit Chef Starter Repo is tested with RHEL6.
