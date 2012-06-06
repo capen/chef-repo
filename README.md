@@ -13,18 +13,22 @@ The easiest way to get started is to launch the single instance baseline templat
 To manually configure an instance.
 
 * Launch one of the supported AMIs.  Currently this is tested on RHEL 6u2.
-* Download this repository and copy it to the target instance.  
-* SSH to that system and in the downloaded directory, run the following
+* SSH to that system and in the downloaded directory, and download this repository.
+
+```
+yum -y install git
+git clone git://github.com/live-community/chef-repo.git /var/chef
+```
 
 Once it is on the instance, include the Intuit Public Cookbooks and bootstrap the instance by running the below from within the directory:
 
 ```
-yum -y install git
+cd /var/chef
 git submodule init && git submodule update
-./scripts/bootstrap.sh
+./script/bootstrap.sh
 ```
 
-This will boot strap the Instance with Chef.
+This will bootstrap the Instance with Chef.  See below for more information on configuring the instance from the Intuit cookbooks.
 
 Apply Chef Roles
 ----------------
@@ -37,10 +41,10 @@ To apply the baseline role run:
 chef-solo -c config/solo.rb -j nodes/baseline.json
 ```
 
-You can specify any recipe in the cookbook repo as follows
+You can specify any recipe in the cookbook repo as follows:
 
 ```
-chef-solo -c config/solo.rb -a 'recipe[jenkins]'
+chef-solo -c config/solo.rb -o 'recipe[jenkins]'
 ```
 
 Supported AMIs
