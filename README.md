@@ -20,7 +20,7 @@ yum -y install git
 git clone git://github.com/live-community/chef-repo.git /var/chef
 ```
 
-Once it is on the instance, include the Intuit Public Cookbooks and bootstrap the instance by running the below from within the directory:
+* Once the repo is downloaded, include the Intuit Public Cookbooks submodule and bootstrap the instance by running the below from within the directory:
 
 ```
 cd /var/chef
@@ -28,7 +28,7 @@ git submodule init && git submodule update
 ./script/bootstrap.sh
 ```
 
-This will bootstrap the Instance with Chef.  See below for more information on configuring the instance from the Intuit cookbooks.
+* This will bootstrap the Instance with Chef.  See below for more information on configuring the instance from the Intuit cookbooks.
 
 Apply Chef Roles
 ----------------
