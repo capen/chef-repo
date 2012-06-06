@@ -6,33 +6,44 @@ I am the Intuit Chef repository.  My goal is to provide an easy path for you to 
 Getting Started
 ---------------
 
+The easiest way to get started is to launch the single instance baseline template in the Cloud Formation tempaltes repo.
+
+[Cloud Formation Templates](https://github.com/live-community/cloud_formation_templates)
+
+To manually configure an instance.
+
 * Launch one of the supported AMIs.  Currently this is tested on RHEL 6u2.
-* Download this repository and copy it to the target system.  (I include the Intuit Cookbooks Git Submodule, so if you clone me, make sure to do a **git submodule init && git submodule update**)
+* Download this repository and copy it to the target instance.  
 * SSH to that system and in the downloaded directory, run the following
 
+Once it is on the instance, include the Intuit Public Cookbooks and bootstrap the instance by running the below from within the directory:
+
 ```
-umask 022
-./scripts/rhel6/bootstrap-rhel6.sh
+yum -y install git
+git submodule init && git submodule update
+./scripts/bootstrap.sh
 ```
 
-This will boot strap the instance with chef.
+This will boot strap the Instance with Chef.
 
 Apply Chef Roles
 ----------------
 
-We include a base that installs a few common packages
+We include a base that configures the Intuit Baseline Tweaks
 
-* Build Essentials
-* Git
-* Cloud Formation Bootstrap Utilities
-
-To apply the base role run:
+To apply the baseline role run:
 
 ```
-chef-solo -c config/solo.rb -j nodes/base.json
+chef-solo -c config/solo.rb -j nodes/baseline.json
+```
+
+You can specify any recipe in the cookbook repo as follows
+
+```
+chef-solo -c config/solo.rb -a 'recipe[jenkins]'
 ```
 
 Supported AMIs
 --------------
 
-The Intuit Chef Starter Repo is tested with RHEL6u2
+The Intuit Chef Starter Repo is tested with RHEL6
