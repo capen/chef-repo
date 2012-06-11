@@ -1,7 +1,12 @@
 Chef Starter Repo
 =================
 
-I am the Intuit Chef repository.  My goal is to provide an easy path for you to boot strap a Intuit Linux instance with Chef and the Intuit cookbooks.
+I am the Intuit Chef repository.  My goal is to provide an easy path for you to boot strap an Linux instance in the AWS EC2 Cloud with Chef and the Intuit cookbooks.
+
+How To Use This Repository
+--------------------------
+
+This repo is meant as a starting point to bootstrap an Instance with Chef and give you a foundation to apply Cookbooks from the Intuit open source library within in a couple minutes.
 
 Getting Started
 ---------------
@@ -10,7 +15,7 @@ The easiest way to get started is to launch the single instance baseline templat
 
 [Cloud Formation Templates](https://github.com/live-community/cloud_formation_templates)
 
-To manually configure an instance.
+To manually configure an instance:
 
 * Launch one of the supported AMIs.  Currently this is tested on RHEL 6u2.
 * SSH to that system and in the downloaded directory, and download this repository.
