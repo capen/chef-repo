@@ -19,6 +19,7 @@ To manually configure an instance:
 
 * Launch one of the supported AMIs.  Currently this is tested on RHEL 6u2.
 * SSH to that system and in the downloaded directory, and download this repository.
+* Download the Chef start repo.
 
 ```
 yum -y install git
@@ -26,10 +27,16 @@ git clone git://github.com/live-community/chef-repo.git /var/chef
 ```
 
 * Once the repo is downloaded, include the Intuit Public Cookbooks submodule and bootstrap the instance by running the below from within the directory:
+* Download the cookbooks submodule.
 
 ```
 cd /var/chef
 git submodule init && git submodule update
+```
+
+* Bootstrap the system to install Chef.
+
+```
 ./script/bootstrap.sh
 ```
 
