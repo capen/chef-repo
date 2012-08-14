@@ -11,9 +11,7 @@ This repo is meant as a starting point to bootstrap an Instance with Chef and gi
 Getting Started
 ---------------
 
-The easiest way to get started is to launch the single instance baseline template in the Cloud Formation tempaltes repo.
-
-[Cloud Formation Templates](https://github.com/live-community/cloud_formation_templates)
+The easiest way to get started is to launch the [Single Instance Chef Template](https://raw.github.com/live-community/cloud_formation_templates/master/classic/single_instances/base_instance_with_chef.json) in the [Cloud Formation Templates Repo](https://github.com/live-community/cloud_formation_templates).
 
 To manually configure an instance:
 
