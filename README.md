@@ -6,12 +6,14 @@ I am the Intuit Chef repository.  My goal is to provide an easy path for you to 
 How To Use This Repository
 --------------------------
 
-This repo is meant as a starting point to bootstrap an Instance with Chef and give you a foundation to apply Cookbooks from the Intuit open source library within in a couple minutes.
+This repo is meant as a starting point to bootstrap an Instance with Chef and give you a foundation to apply Cookbooks from the Intuit open source library within in a couple minutes.  It is meant to be cloned (along with the starter cookbooks) into your own SCM repository.
 
 Getting Started
 ---------------
 
-The easiest way to get started is to launch the [Single Instance Chef Template](https://raw.github.com/live-community/cloud_formation_templates/master/classic/single_instances/base_instance_with_chef.json) in the [Cloud Formation Templates Repo](https://github.com/live-community/cloud_formation_templates).
+The easiest way to get started is to launch the [Single Instance Baseline Template](https://github.com/live-community/cloud_formation_templates/blob/master/classic/single_instances/chef/base_instance_with_chef.json) from the [Cloud Formation Templates Repo](https://github.com/live-community/cloud_formation_templates). 
+
+For more information on getting started with Cloud Formation, see [AWS Agility Framework Wiki](https://github.com/live-community/aws-agility-framework/wiki/Getting-Started)
 
 To manually configure an instance:
 
